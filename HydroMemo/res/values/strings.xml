@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="appName">HydroMemo</string>
+    <string name="NONE">#</string>
+    <string name="aboutName">Über HydroMemo</string>
+    <string name="aboutAuthorName">Markus Bösling</string>
+    <string name="aboutAuthorEmail">markus@boesling.de</string>
+    <string name="helpName">Hilfe</string>
+    <string name="helpText1">Die HydroMemo App erinnert Sie daran Flüssigkeit zu sich zu nehmen.</string>
+    <string name="helpText2">Sie können die Erinnerung ein- und ausschalten.</string>
+    <string name="helpText3">Der Name dient der persönlichen Ansprache.</string>
+    <string name="helpText4">Sie können den Beginn, das Ende und das Intervall einstellen.</string>
+	<string name="helpAdvice">Um den Akku zu schonen wird das eingestellte Intervall evtl. nicht exakt eingehalten.</string>
+    <string name="notificationText">Trink doch mal wieder etwas!</string>
+    <string name="cfgCommonNameKey">cfgCommonName</string>
+    <string name="cfgCommonNameTitle">Name</string>
+    <string name="cfgCommonNameDefaultValue">Name</string>
+    <string name="cfgReminderKey">cfgReminder</string>
+    <string name="cfgReminderTitle">Erinnerung</string>
+    <string name="cfgReminderDefaultValue">true</string>
+    <string name="cfgReminderSummaryOn"></string>
+    <string name="cfgReminderSummaryOff"></string>
+    <string name="cfgReminderTextOn">ein</string>
+    <string name="cfgReminderTextOff">aus</string>
+    <string name="cfgTimeStartKey">cfgTimeStart</string>
+    <string name="cfgTimeStartTitle">Beginn</string>
+    <string name="cfgTimeStartDefaultValue">9</string>
+    <string name="cfgTimeEndKey">cfgTimeEnd</string>
+    <string name="cfgTimeEndTitle">Ende</string>
+    <string name="cfgTimeEndDefaultValue">21</string>
+    <string name="cfgTimeIntervalKey">cfgTimeInterval</string>
+    <string name="cfgTimeIntervalTitle">Intervall</string>
+    <string name="cfgTimeIntervalDefaultValue">60</string>
+
+</resources>

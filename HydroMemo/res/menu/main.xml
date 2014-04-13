@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/menuAbout"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="@string/aboutName">
+    </item>
+    <item
+        android:id="@+id/menuHelp"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="@string/helpName">
+    </item>
+    
+</menu>
