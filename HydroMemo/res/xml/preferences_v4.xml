@@ -1,0 +1,43 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <CheckBoxPreference
+        android:defaultValue="@string/cfgReminderDefaultValue"
+        android:key="@string/cfgReminderKey"
+        android:summaryOff="@string/cfgReminderSummaryOff"
+        android:summaryOn="@string/cfgReminderSummaryOn"
+        android:title="@string/cfgReminderTitle" />
+
+    <de.boesling.hydromemo.preferences.EditTextPreferenceShowSummary
+        android:dependency="@string/cfgReminderKey"
+        android:hint="@string/cfgCommonNameDefaultValue"
+        android:inputType="textCapWords"
+        android:key="@string/cfgCommonNameKey"
+        android:summary="@string/cfgCommonNameDefaultValue"
+        android:title="@string/cfgCommonNameTitle" />
+
+    <de.boesling.hydromemo.preferences.ListPreferenceShowSummary
+        android:defaultValue="@string/cfgTimeStartDefaultValue"
+        android:dependency="@string/cfgReminderKey"
+        android:entries="@array/cfgTimeStartKeys"
+        android:entryValues="@array/cfgTimeStartValues"
+        android:key="@string/cfgTimeStartKey"
+        android:summary="@string/cfgTimeStartDefaultValue"
+        android:title="@string/cfgTimeStartTitle" />
+    <de.boesling.hydromemo.preferences.ListPreferenceShowSummary
+        android:defaultValue="@string/cfgTimeEndDefaultValue"
+        android:dependency="@string/cfgReminderKey"
+        android:entries="@array/cfgTimeEndKeys"
+        android:entryValues="@array/cfgTimeEndValues"
+        android:key="@string/cfgTimeEndKey"
+        android:summary="@string/cfgTimeEndDefaultValue"
+        android:title="@string/cfgTimeEndTitle" />
+    <de.boesling.hydromemo.preferences.ListPreferenceShowSummary
+        android:defaultValue="@string/cfgTimeIntervalDefaultValue"
+        android:dependency="@string/cfgReminderKey"
+        android:entries="@array/cfgTimeIntervalKeys"
+        android:entryValues="@array/cfgTimeIntervalValues"
+        android:key="@string/cfgTimeIntervalKey"
+        android:summary="@string/cfgTimeIntervalDefaultValue"
+        android:title="@string/cfgTimeIntervalTitle" />
+
+</PreferenceScreen>
