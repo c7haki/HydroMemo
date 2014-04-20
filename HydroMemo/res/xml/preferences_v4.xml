@@ -18,24 +18,24 @@
     <de.boesling.hydromemo.preferences.ListPreferenceShowSummary
         android:defaultValue="@string/cfgTimeStartDefaultValue"
         android:dependency="@string/cfgReminderKey"
-        android:entries="@array/cfgTimeStartKeys"
-        android:entryValues="@array/cfgTimeStartValues"
+        android:entries="@array/cfgTimeEntries"
+        android:entryValues="@array/cfgTimeEntryValues"
         android:key="@string/cfgTimeStartKey"
         android:summary="@string/cfgTimeStartDefaultValue"
         android:title="@string/cfgTimeStartTitle" />
     <de.boesling.hydromemo.preferences.ListPreferenceShowSummary
         android:defaultValue="@string/cfgTimeEndDefaultValue"
         android:dependency="@string/cfgReminderKey"
-        android:entries="@array/cfgTimeEndKeys"
-        android:entryValues="@array/cfgTimeEndValues"
+        android:entries="@array/cfgTimeEntries"
+        android:entryValues="@array/cfgTimeEntryValues"
         android:key="@string/cfgTimeEndKey"
         android:summary="@string/cfgTimeEndDefaultValue"
         android:title="@string/cfgTimeEndTitle" />
     <de.boesling.hydromemo.preferences.ListPreferenceShowSummary
         android:defaultValue="@string/cfgTimeIntervalDefaultValue"
         android:dependency="@string/cfgReminderKey"
-        android:entries="@array/cfgTimeIntervalKeys"
-        android:entryValues="@array/cfgTimeIntervalValues"
+        android:entries="@array/cfgTimeIntervalEntries"
+        android:entryValues="@array/cfgTimeIntervalEntryValues"
         android:key="@string/cfgTimeIntervalKey"
         android:summary="@string/cfgTimeIntervalDefaultValue"
         android:title="@string/cfgTimeIntervalTitle" />
