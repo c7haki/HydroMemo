@@ -101,8 +101,8 @@ public class Notifier extends Service {
 		builder.setOngoing(true);
 		builder.setNumber(++DrinkDemand.nDrinkDemandsPending);
 		builder.setPriority(Notification.PRIORITY_DEFAULT);
-		builder.setVibrate(new long[] { 0, 100, 100, 100, 100, 100, 100, 300,
-				100, 300, 100, 300, 100, 100, 100, 100, 100, 100, 100 });
+		builder.setVibrate(new long[] { 0, 300, 100, 300, 300, 300, 100,
+				100, 100, 100, 100, 100, 100 });
 		builder.setDefaults(Notification.DEFAULT_LIGHTS);
 
 		// builder.setWhen(System.currentTimeMillis());
