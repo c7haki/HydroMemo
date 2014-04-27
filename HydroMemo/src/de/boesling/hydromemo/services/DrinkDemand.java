@@ -58,10 +58,10 @@ public class DrinkDemand extends Service {
 
 		SharedPreferences sharedPreferences = Preferences
 				.getSharedPreferences(this);
-		boolean isVibrationEnabled = sharedPreferences.getBoolean(
-				getString(R.string.cfgVibrationKey),
-				getResources().getBoolean(R.bool.cfgVibrationDefaultValue));
-		if (isVibrationEnabled == true) {
+		boolean isSoundEnabled = sharedPreferences.getBoolean(
+				getString(R.string.cfgSoundKey),
+				getResources().getBoolean(R.bool.cfgSoundDefaultValue));
+		if (isSoundEnabled) {
 			PlayMedia playAudio = new PlayMedia(MediaPlayer.create(
 					getApplicationContext(), R.raw.aaahhh));
 			playAudio.execute();

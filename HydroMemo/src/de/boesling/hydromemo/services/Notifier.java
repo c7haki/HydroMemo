@@ -105,7 +105,7 @@ public class Notifier extends Service {
 		boolean isVibrationEnabled = sharedPreferences.getBoolean(
 				getString(R.string.cfgVibrationKey),
 				getResources().getBoolean(R.bool.cfgVibrationDefaultValue));
-		if (isVibrationEnabled == true) {
+		if (isVibrationEnabled) {
 			builder.setVibrate(new long[] { 0, 300, 100, 300, 300, 300, 100,
 					100, 100, 100, 100, 100, 100 });
 		}
@@ -117,7 +117,7 @@ public class Notifier extends Service {
 		boolean isSoundEnabled = sharedPreferences.getBoolean(
 				getString(R.string.cfgSoundKey),
 				getResources().getBoolean(R.bool.cfgSoundDefaultValue));
-		if (isSoundEnabled == true) {
+		if (isSoundEnabled) {
 			notification.sound = Uri.parse("android.resource://"
 					+ context.getPackageName() + "/"
 					+ chooseNotificationSound());
