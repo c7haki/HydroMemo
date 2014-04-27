@@ -18,11 +18,16 @@
     <string name="cfgCommonNameDefaultValue">Name</string>
     <string name="cfgReminderKey">cfgReminder</string>
     <string name="cfgReminderTitle">Reminder</string>
-    <string name="cfgReminderDefaultValue">true</string>
-    <string name="cfgReminderSummaryOn"></string>
-    <string name="cfgReminderSummaryOff"></string>
-    <string name="cfgReminderTextOn">on</string>
-    <string name="cfgReminderTextOff">off</string>
+    <bool name="cfgReminderDefaultValue">true</bool>
+    <string name="cfgReminderSummaryOn">Reminder is enabled</string>
+    <string name="cfgReminderSummaryOff">Reminder is disabled</string>
+    <string name="cfgSoundKey">cfgSoundKey</string>
+    <string name="cfgSoundTitle">Sound</string>
+    <bool name="cfgSoundDefaultValue">true</bool>
+    <string name="cfgSoundSummaryOn">Reminder with sound</string>
+    <string name="cfgSoundSummaryOff">Reminder without sound</string>
+    <string name="cfgSwitchTextOn">on</string>
+    <string name="cfgSwitchTextOff">off</string>
     <string name="cfgTimeStartKey">cfgTimeStart</string>
     <string name="cfgTimeStartTitle">Begin</string>
     <string name="cfgTimeStartDefaultValue">9</string>
@@ -32,5 +37,10 @@
     <string name="cfgTimeIntervalKey">cfgTimeInterval</string>
     <string name="cfgTimeIntervalTitle">Interval</string>
     <string name="cfgTimeIntervalDefaultValue">60</string>
-
+    <string name="cfgVibrationKey">cfgVibrationKey</string>
+    <string name="cfgVibrationTitle">Vibration</string>
+    <bool name="cfgVibrationDefaultValue">true</bool>
+    <string name="cfgVibrationSummaryOn">Reminder with vibration</string>
+    <string name="cfgVibrationSummaryOff">Reminder without vibration</string>
+    
 </resources>

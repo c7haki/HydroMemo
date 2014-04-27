@@ -40,4 +40,19 @@
         android:summary="@string/cfgTimeIntervalDefaultValue"
         android:title="@string/cfgTimeIntervalTitle" />
 
+    <CheckBoxPreference
+        android:defaultValue="@bool/cfgSoundDefaultValue"
+        android:dependency="@string/cfgReminderKey"
+        android:key="@string/cfgSoundKey"
+        android:summaryOff="@string/cfgSoundSummaryOff"
+        android:summaryOn="@string/cfgSoundSummaryOn"
+        android:title="@string/cfgSoundTitle" />
+    <CheckBoxPreference
+        android:defaultValue="@bool/cfgVibrationDefaultValue"
+        android:dependency="@string/cfgReminderKey"
+        android:key="@string/cfgVibrationKey"
+        android:summaryOff="@string/cfgVibrationSummaryOff"
+        android:summaryOn="@string/cfgVibrationSummaryOn"
+        android:title="@string/cfgVibrationTitle" />
+
 </PreferenceScreen>

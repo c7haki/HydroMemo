@@ -1,12 +1,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <SwitchPreference
-        android:defaultValue="@string/cfgReminderDefaultValue"
+        android:defaultValue="@bool/cfgReminderDefaultValue"
         android:key="@string/cfgReminderKey"
         android:summaryOff="@string/cfgReminderSummaryOff"
         android:summaryOn="@string/cfgReminderSummaryOn"
-        android:switchTextOff="@string/cfgReminderTextOff"
-        android:switchTextOn="@string/cfgReminderTextOn"
+        android:switchTextOff="@string/cfgSwitchTextOff"
+        android:switchTextOn="@string/cfgSwitchTextOn"
         android:title="@string/cfgReminderTitle" />
 
     <de.boesling.hydromemo.preferences.EditTextPreferenceShowSummary
@@ -41,5 +41,24 @@
         android:key="@string/cfgTimeIntervalKey"
         android:summary="@string/cfgTimeIntervalDefaultValue"
         android:title="@string/cfgTimeIntervalTitle" />
+
+    <SwitchPreference
+        android:defaultValue="@bool/cfgSoundDefaultValue"
+        android:dependency="@string/cfgReminderKey"
+        android:key="@string/cfgSoundKey"
+        android:summaryOff="@string/cfgSoundSummaryOff"
+        android:summaryOn="@string/cfgSoundSummaryOn"
+        android:switchTextOff="@string/cfgSwitchTextOff"
+        android:switchTextOn="@string/cfgSwitchTextOn"
+        android:title="@string/cfgSoundTitle" />
+    <SwitchPreference
+        android:defaultValue="@bool/cfgVibrationDefaultValue"
+        android:dependency="@string/cfgReminderKey"
+        android:key="@string/cfgVibrationKey"
+        android:summaryOff="@string/cfgVibrationSummaryOff"
+        android:summaryOn="@string/cfgVibrationSummaryOn"
+        android:switchTextOff="@string/cfgSwitchTextOff"
+        android:switchTextOn="@string/cfgSwitchTextOn"
+        android:title="@string/cfgVibrationTitle" />
 
 </PreferenceScreen>

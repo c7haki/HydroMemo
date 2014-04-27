@@ -21,10 +21,12 @@ package de.boesling.hydromemo.services;
 import android.annotation.TargetApi;
 import android.app.Service;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.IBinder;
 import de.boesling.hydromemo.R;
+import de.boesling.hydromemo.activities.Preferences;
 import de.boesling.hydromemo.tasks.PlayMedia;
 
 public class DrinkDemand extends Service {
@@ -53,8 +55,16 @@ public class DrinkDemand extends Service {
 
 	private void handleCommand(Intent intent) {
 		nDrinkDemandsPending = 0;
-		PlayMedia playAudio = new PlayMedia(MediaPlayer.create(
-				getApplicationContext(), R.raw.aaahhh));
-		playAudio.execute();
+
+		SharedPreferences sharedPreferences = Preferences
+				.getSharedPreferences(this);
+		boolean isVibrationEnabled = sharedPreferences.getBoolean(
+				getString(R.string.cfgVibrationKey),
+				getResources().getBoolean(R.bool.cfgVibrationDefaultValue));
+		if (isVibrationEnabled == true) {
+			PlayMedia playAudio = new PlayMedia(MediaPlayer.create(
+					getApplicationContext(), R.raw.aaahhh));
+			playAudio.execute();
+		}
 	}
 }

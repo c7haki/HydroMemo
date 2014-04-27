@@ -13,24 +13,26 @@
     <string name="helpText4">Sie können den Beginn, das Ende und das Intervall einstellen.</string>
 	<string name="helpAdvice">Um den Akku zu schonen wird das eingestellte Intervall evtl. nicht exakt eingehalten.</string>
     <string name="notificationText">Trink doch mal wieder etwas!</string>
-    <string name="cfgCommonNameKey">cfgCommonName</string>
     <string name="cfgCommonNameTitle">Name</string>
     <string name="cfgCommonNameDefaultValue">Name</string>
-    <string name="cfgReminderKey">cfgReminder</string>
     <string name="cfgReminderTitle">Erinnerung</string>
     <string name="cfgReminderDefaultValue">true</string>
-    <string name="cfgReminderSummaryOn"></string>
-    <string name="cfgReminderSummaryOff"></string>
-    <string name="cfgReminderTextOn">ein</string>
-    <string name="cfgReminderTextOff">aus</string>
-    <string name="cfgTimeStartKey">cfgTimeStart</string>
+    <string name="cfgReminderSummaryOn">Erinnerungfunktion ist eingeschaltet</string>
+    <string name="cfgReminderSummaryOff">Erinnerungfunktion ist ausgeschaltet</string>
+    <string name="cfgSoundTitle">Ton</string>
+    <string name="cfgSoundDefaultValue">true</string>
+    <string name="cfgSoundSummaryOn">Erinnerung mit Ton</string>
+    <string name="cfgSoundSummaryOff">Erinnerung ohne Ton</string>
+    <string name="cfgSwitchTextOn">an</string>
+    <string name="cfgSwitchTextOff">aus</string>
     <string name="cfgTimeStartTitle">Beginn</string>
     <string name="cfgTimeStartDefaultValue">9</string>
-    <string name="cfgTimeEndKey">cfgTimeEnd</string>
     <string name="cfgTimeEndTitle">Ende</string>
     <string name="cfgTimeEndDefaultValue">21</string>
-    <string name="cfgTimeIntervalKey">cfgTimeInterval</string>
     <string name="cfgTimeIntervalTitle">Intervall</string>
     <string name="cfgTimeIntervalDefaultValue">60</string>
-
+    <string name="cfgVibrationTitle">Vibration</string>
+    <string name="cfgVibrationSummaryOn">Erinnerung mit Vibration</string>
+    <string name="cfgVibrationSummaryOff">Erinnerung ohne Vibration</string>
+    
 </resources>

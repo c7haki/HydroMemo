@@ -101,19 +101,27 @@ public class Notifier extends Service {
 		builder.setOngoing(true);
 		builder.setNumber(++DrinkDemand.nDrinkDemandsPending);
 		builder.setPriority(Notification.PRIORITY_DEFAULT);
-		builder.setVibrate(new long[] { 0, 300, 100, 300, 300, 300, 100,
-				100, 100, 100, 100, 100, 100 });
-		builder.setDefaults(Notification.DEFAULT_LIGHTS);
 
-		// builder.setWhen(System.currentTimeMillis());
+		boolean isVibrationEnabled = sharedPreferences.getBoolean(
+				getString(R.string.cfgVibrationKey),
+				getResources().getBoolean(R.bool.cfgVibrationDefaultValue));
+		if (isVibrationEnabled == true) {
+			builder.setVibrate(new long[] { 0, 300, 100, 300, 300, 300, 100,
+					100, 100, 100, 100, 100, 100 });
+		}
+		builder.setDefaults(Notification.DEFAULT_LIGHTS);
 		builder.setUsesChronometer(true);
 
 		Notification notification = builder.build();
 
-		// notification.flags |= Notification.FLAG_INSISTENT;
-
-		notification.sound = Uri.parse("android.resource://"
-				+ context.getPackageName() + "/" + chooseNotificationSound());
+		boolean isSoundEnabled = sharedPreferences.getBoolean(
+				getString(R.string.cfgSoundKey),
+				getResources().getBoolean(R.bool.cfgSoundDefaultValue));
+		if (isSoundEnabled == true) {
+			notification.sound = Uri.parse("android.resource://"
+					+ context.getPackageName() + "/"
+					+ chooseNotificationSound());
+		}
 
 		NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 		notificationManager.notify(42, notification);
@@ -121,7 +129,7 @@ public class Notifier extends Service {
 
 	private int chooseNotificationSound() {
 		if (DrinkDemand.nDrinkDemandsPending <= 2) {
-			return R.raw.water_drop_1;
+			return R.raw.water_drop;
 		} else {
 			return R.raw.water_in_glass;
 		}
