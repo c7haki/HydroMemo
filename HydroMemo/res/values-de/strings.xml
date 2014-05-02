@@ -11,6 +11,8 @@
     <string name="helpText2">Sie können die Erinnerung ein- und ausschalten.</string>
     <string name="helpText3">Der Name dient der persönlichen Ansprache.</string>
     <string name="helpText4">Sie können den Beginn, das Ende und das Intervall einstellen.</string>
+    <string name="helpText5">Sie können den Ton und/oder die Vibration der Erinnerung ausschalten.</string>
+    <string name="helpText6">Mit der Option Steigerung können Sie die Intensität der Erinnerung erhöhen.</string>
     <string name="helpAdvice">Um den Akku zu schonen wird das eingestellte Intervall evtl. nicht exakt eingehalten.</string>
     <string name="notificationText">Trink doch mal wieder etwas!</string>
     <string name="cfgCommonNameTitle">Name</string>

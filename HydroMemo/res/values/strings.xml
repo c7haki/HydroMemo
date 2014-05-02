@@ -11,6 +11,8 @@
     <string name="helpText2">You can switch the reminder on and off.</string>
     <string name="helpText3">Choose a name to give the reminder a personal touch.</string>
     <string name="helpText4">You can change the begin, the end and the interval of the reminder.</string>
+    <string name="helpText5">You can disable the sound and the vibration.</string>
+    <string name="helpText6">The Increment option changes the intensity of the reminder.</string>
 	<string name="helpAdvice">To save battery power, the configured interval will not be handled very accurate.</string>
     <string name="notificationText">Please, drink some water!</string>
     <string name="cfgCommonNameKey">cfgCommonName</string>
