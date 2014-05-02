@@ -60,5 +60,14 @@
         android:switchTextOff="@string/cfgSwitchTextOff"
         android:switchTextOn="@string/cfgSwitchTextOn"
         android:title="@string/cfgVibrationTitle" />
-
+    <SwitchPreference
+        android:defaultValue="@bool/cfgIncrementDefaultValue"
+        android:dependency="@string/cfgReminderKey"
+        android:key="@string/cfgIncrementKey"
+        android:summaryOff="@string/cfgIncrementSummaryOff"
+        android:summaryOn="@string/cfgIncrementSummaryOn"
+        android:switchTextOff="@string/cfgSwitchTextOff"
+        android:switchTextOn="@string/cfgSwitchTextOn"
+        android:title="@string/cfgIncrementTitle" />
+    
 </PreferenceScreen>

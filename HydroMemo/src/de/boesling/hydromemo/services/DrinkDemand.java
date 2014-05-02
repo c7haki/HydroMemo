@@ -21,21 +21,27 @@ package de.boesling.hydromemo.services;
 import android.annotation.TargetApi;
 import android.app.Service;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.IBinder;
 import de.boesling.hydromemo.R;
-import de.boesling.hydromemo.activities.Preferences;
+import de.boesling.hydromemo.activities.PreferencesHelper;
 import de.boesling.hydromemo.tasks.PlayMedia;
 
 public class DrinkDemand extends Service {
 
 	protected static int nDrinkDemandsPending = 0;
+	private PreferencesHelper preferences;
 
 	@Override
 	public IBinder onBind(Intent arg0) {
 		return null;
+	}
+
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		this.preferences = new PreferencesHelper(this);
 	}
 
 	// This is the old onStart method that will be called on the pre-2.0
@@ -55,13 +61,7 @@ public class DrinkDemand extends Service {
 
 	private void handleCommand(Intent intent) {
 		nDrinkDemandsPending = 0;
-
-		SharedPreferences sharedPreferences = Preferences
-				.getSharedPreferences(this);
-		boolean isSoundEnabled = sharedPreferences.getBoolean(
-				getString(R.string.cfgSoundKey),
-				getResources().getBoolean(R.bool.cfgSoundDefaultValue));
-		if (isSoundEnabled) {
+		if (preferences.isSoundEnabled()) {
 			PlayMedia playAudio = new PlayMedia(MediaPlayer.create(
 					getApplicationContext(), R.raw.aaahhh));
 			playAudio.execute();

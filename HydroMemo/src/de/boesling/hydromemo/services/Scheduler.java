@@ -24,22 +24,26 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
 import de.boesling.hydromemo.BuildConfig;
-import de.boesling.hydromemo.R;
-import de.boesling.hydromemo.activities.Preferences;
+import de.boesling.hydromemo.activities.PreferencesHelper;
 
 public class Scheduler extends Service {
 
-	private static final String LOG_TAG = Scheduler.class
-			.getSimpleName();
+	private static final String LOG_TAG = Scheduler.class.getSimpleName();
+	private PreferencesHelper preferences;
 
 	@Override
 	public IBinder onBind(Intent arg0) {
 		return null;
+	}
+
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		this.preferences = new PreferencesHelper(this);
 	}
 
 	// This is the old onStart method that will be called on the pre-2.0
@@ -65,17 +69,10 @@ public class Scheduler extends Service {
 		AlarmManager alarmManager = (AlarmManager) context
 				.getSystemService(Context.ALARM_SERVICE);
 
-		SharedPreferences sharedPreferences = Preferences
-				.getSharedPreferences(this);
-		if (sharedPreferences.getBoolean(
-				context.getString(R.string.cfgReminderKey), false)) {
-			Integer cfgTimeIntervalValue = Integer
-					.parseInt(sharedPreferences.getString(context
-							.getString(R.string.cfgTimeIntervalKey), context
-							.getString(R.string.cfgTimeIntervalDefaultValue))) * 60 * 1000;
+		if (preferences.isReminderEnabled()) {
+			long cfgTimeIntervalValue = preferences.getIntervalMillis();
 			if (BuildConfig.DEBUG) {
-				Log.d(LOG_TAG, "repeating interval " + cfgTimeIntervalValue
-						+ " ms");
+				Log.d(LOG_TAG, "interval " + cfgTimeIntervalValue + " ms");
 			}
 
 			alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,

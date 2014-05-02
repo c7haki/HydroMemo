@@ -18,7 +18,6 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
  */
 package de.boesling.hydromemo.activities;
 
-import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
@@ -38,7 +37,7 @@ public class Preferences extends PreferenceActivity implements
 		super.onCreate(savedInstanceState);
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
 			addPreferencesFromResource(R.xml.preferences);
-		}else{
+		} else {
 			addPreferencesFromResource(R.xml.preferences_v4);
 		}
 	}
@@ -66,22 +65,16 @@ public class Preferences extends PreferenceActivity implements
 	@Override
 	protected void onResume() {
 		super.onResume();
-		getSharedPreferences(this).registerOnSharedPreferenceChangeListener(
-				this);
+		new PreferencesHelper(this).getSharedPreferences()
+				.registerOnSharedPreferenceChangeListener(this);
 	}
 
 	@Override
 	protected void onPause() {
 		super.onPause();
-		getSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(
-				this);
+		new PreferencesHelper(this).getSharedPreferences()
+				.unregisterOnSharedPreferenceChangeListener(this);
 		startService(new Intent(this, Scheduler.class));
-	}
-
-	public static final SharedPreferences getSharedPreferences(
-			ContextWrapper contextWrapper) {
-		return contextWrapper.getSharedPreferences(
-				contextWrapper.getPackageName() + "_preferences", MODE_PRIVATE);
 	}
 
 	@Override
@@ -89,4 +82,5 @@ public class Preferences extends PreferenceActivity implements
 			String key) {
 		startService(new Intent(this, Scheduler.class));
 	}
+
 }

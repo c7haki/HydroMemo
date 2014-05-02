@@ -18,6 +18,8 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
  */
 package de.boesling.hydromemo.services;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 
 import android.annotation.SuppressLint;
@@ -28,7 +30,6 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -36,13 +37,30 @@ import android.os.Build;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import de.boesling.hydromemo.R;
-import de.boesling.hydromemo.activities.Preferences;
+import de.boesling.hydromemo.activities.PreferencesHelper;
 
 public class Notifier extends Service {
+
+	private static final long dit = 100;
+	private static final long dah = 3 * dit;
+	private static final Long[][] hydromemo = {
+			{ dit, dit, dit, dit, dit, dit, dit },
+			{ dah, dit, dit, dit, dah, dit, dah }, { dah, dit, dit, dit, dit },
+			{ dit, dit, dah, dit, dit }, { dah, dit, dah, dit, dah },
+			{ dah, dit, dah }, { dit }, { dah, dit, dah },
+			{ dah, dit, dah, dit, dah } };
+
+	private PreferencesHelper preferences;
 
 	@Override
 	public IBinder onBind(Intent arg0) {
 		return null;
+	}
+
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		this.preferences = new PreferencesHelper(this);
 	}
 
 	// This is the old onStart method that will be called on the pre-2.0
@@ -61,7 +79,7 @@ public class Notifier extends Service {
 	}
 
 	private void handleCommand(Intent intent) {
-		if (isReminderEnabled()) {
+		if (preferences.isReminderEnabled()) {
 			if (isInConfiguredTimeRange()) {
 				sendNotification();
 			}
@@ -72,12 +90,6 @@ public class Notifier extends Service {
 	private void sendNotification() {
 		Context context = getApplicationContext();
 
-		SharedPreferences sharedPreferences = Preferences
-				.getSharedPreferences(this);
-		String cfgCommonNameValue = sharedPreferences.getString(
-				getString(R.string.cfgCommonNameKey),
-				getString(R.string.cfgCommonNameDefaultValue));
-
 		Intent drinkDemandIntent = new Intent(context, DrinkDemand.class);
 		PendingIntent pendingDrinkDemandIntent = PendingIntent.getService(
 				context, 0, drinkDemandIntent, Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -86,7 +98,7 @@ public class Notifier extends Service {
 		NotificationCompat.Builder builder = new NotificationCompat.Builder(
 				this);
 
-		builder.setContentTitle(cfgCommonNameValue);
+		builder.setContentTitle(preferences.getName());
 		builder.setContentText(notificationText);
 		builder.setSmallIcon(R.drawable.ic_stat_notify_small_bottle);
 
@@ -102,22 +114,15 @@ public class Notifier extends Service {
 		builder.setNumber(++DrinkDemand.nDrinkDemandsPending);
 		builder.setPriority(Notification.PRIORITY_DEFAULT);
 
-		boolean isVibrationEnabled = sharedPreferences.getBoolean(
-				getString(R.string.cfgVibrationKey),
-				getResources().getBoolean(R.bool.cfgVibrationDefaultValue));
-		if (isVibrationEnabled) {
-			builder.setVibrate(new long[] { 0, 300, 100, 300, 300, 300, 100,
-					100, 100, 100, 100, 100, 100 });
+		if (preferences.isVibrationEnabled()) {
+			builder.setVibrate(getVibrationPattern());
 		}
 		builder.setDefaults(Notification.DEFAULT_LIGHTS);
 		builder.setUsesChronometer(true);
 
 		Notification notification = builder.build();
 
-		boolean isSoundEnabled = sharedPreferences.getBoolean(
-				getString(R.string.cfgSoundKey),
-				getResources().getBoolean(R.bool.cfgSoundDefaultValue));
-		if (isSoundEnabled) {
+		if (preferences.isSoundEnabled()) {
 			notification.sound = Uri.parse("android.resource://"
 					+ context.getPackageName() + "/"
 					+ chooseNotificationSound());
@@ -128,32 +133,45 @@ public class Notifier extends Service {
 	}
 
 	private int chooseNotificationSound() {
-		if (DrinkDemand.nDrinkDemandsPending <= 2) {
+		switch (getIncrement()) {
+		case 1:
 			return R.raw.water_drop;
-		} else {
+		case 2:
+			return R.raw.water_drop_x2;
+		case 3:
 			return R.raw.water_in_glass;
+		case 4:
+			return R.raw.water_in_glass_x2;
+		default:
+			return R.raw.water_in_glass_x2;
 		}
 	}
 
-	private boolean isReminderEnabled() {
-		SharedPreferences sharedPreferences = Preferences
-				.getSharedPreferences(this);
-		return sharedPreferences.getBoolean(getString(R.string.cfgReminderKey),
-				false);
+	private long[] getVibrationPattern() {
+		ArrayList<Long> vp = new ArrayList<Long>();
+		vp.add(0L);
+		for (int i = 0; i < Math.min(getIncrement(), hydromemo.length); ++i) {
+			if (i > 0) {
+				vp.add(dit);
+			}
+			vp.addAll(Arrays.asList(hydromemo[i]));
+		}
+
+		long[] vibrationPattern = new long[vp.size()];
+		for (int i = 0; i < vp.size(); ++i) {
+			vibrationPattern[i] = vp.get(i).longValue();
+		}
+		return vibrationPattern;
+	}
+
+	private int getIncrement() {
+		return preferences.isIncrementEnabled() ? DrinkDemand.nDrinkDemandsPending
+				: 1;
 	}
 
 	private boolean isInConfiguredTimeRange() {
-		SharedPreferences sharedPreferences = Preferences
-				.getSharedPreferences(this);
-		int cfgTimeStartValue = Integer.parseInt(sharedPreferences.getString(
-				getString(R.string.cfgTimeStartKey),
-				getString(R.string.cfgTimeStartDefaultValue)));
-		int cfgTimeEndValue = Integer.parseInt(sharedPreferences.getString(
-				getString(R.string.cfgTimeEndKey),
-				getString(R.string.cfgTimeEndDefaultValue)));
-		Calendar now = Calendar.getInstance();
-
-		return (cfgTimeStartValue <= now.get(Calendar.HOUR_OF_DAY))
-				&& (now.get(Calendar.HOUR_OF_DAY) < cfgTimeEndValue);
+		int hourOfDay = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+		return (preferences.getTimeStart() <= hourOfDay)
+				&& (hourOfDay < preferences.getTimeEnd());
 	}
 }

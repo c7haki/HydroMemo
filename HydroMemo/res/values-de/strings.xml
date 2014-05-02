@@ -11,10 +11,13 @@
     <string name="helpText2">Sie können die Erinnerung ein- und ausschalten.</string>
     <string name="helpText3">Der Name dient der persönlichen Ansprache.</string>
     <string name="helpText4">Sie können den Beginn, das Ende und das Intervall einstellen.</string>
-	<string name="helpAdvice">Um den Akku zu schonen wird das eingestellte Intervall evtl. nicht exakt eingehalten.</string>
+    <string name="helpAdvice">Um den Akku zu schonen wird das eingestellte Intervall evtl. nicht exakt eingehalten.</string>
     <string name="notificationText">Trink doch mal wieder etwas!</string>
     <string name="cfgCommonNameTitle">Name</string>
     <string name="cfgCommonNameDefaultValue">Name</string>
+    <string name="cfgIncrementTitle">Steigerung</string>
+    <string name="cfgIncrementSummaryOn">Erinnerung mit Steigerung</string>
+    <string name="cfgIncrementSummaryOff">Erinnerung ohne Steigerung</string>
     <string name="cfgReminderTitle">Erinnerung</string>
     <string name="cfgReminderDefaultValue">true</string>
     <string name="cfgReminderSummaryOn">Erinnerungfunktion ist eingeschaltet</string>
@@ -34,5 +37,5 @@
     <string name="cfgVibrationTitle">Vibration</string>
     <string name="cfgVibrationSummaryOn">Erinnerung mit Vibration</string>
     <string name="cfgVibrationSummaryOff">Erinnerung ohne Vibration</string>
-    
+
 </resources>

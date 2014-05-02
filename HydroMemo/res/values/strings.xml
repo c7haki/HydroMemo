@@ -16,6 +16,11 @@
     <string name="cfgCommonNameKey">cfgCommonName</string>
     <string name="cfgCommonNameTitle">Name</string>
     <string name="cfgCommonNameDefaultValue">Name</string>
+    <string name="cfgIncrementKey">cfgIncrementKey</string>
+    <string name="cfgIncrementTitle">Increment</string>
+    <bool name="cfgIncrementDefaultValue">false</bool>
+    <string name="cfgIncrementSummaryOn">Reminder with increment</string>
+    <string name="cfgIncrementSummaryOff">Reminder without increment</string>
     <string name="cfgReminderKey">cfgReminder</string>
     <string name="cfgReminderTitle">Reminder</string>
     <bool name="cfgReminderDefaultValue">true</bool>

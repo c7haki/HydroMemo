@@ -54,5 +54,12 @@
         android:summaryOff="@string/cfgVibrationSummaryOff"
         android:summaryOn="@string/cfgVibrationSummaryOn"
         android:title="@string/cfgVibrationTitle" />
-
+    <CheckBoxPreference
+        android:defaultValue="@bool/cfgIncrementDefaultValue"
+        android:dependency="@string/cfgReminderKey"
+        android:key="@string/cfgIncrementKey"
+        android:summaryOff="@string/cfgIncrementSummaryOff"
+        android:summaryOn="@string/cfgIncrementSummaryOn"
+        android:title="@string/cfgIncrementTitle" />
+    
 </PreferenceScreen>
