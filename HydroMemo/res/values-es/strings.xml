@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="appName">HydroMemo</string>
+    <string name="NONE">#</string>
+    <string name="aboutName">Acerca de HydroMemo</string>
+    <string name="aboutAuthorName">Markus Bösling</string>
+    <string name="aboutAuthorEmail">markus@boesling.de</string>
+    <string name="helpName">Ayuda</string>
+    <string name="helpText1">La aplicación HydroMemo trata de ayudarte a beber suficiente agua.</string>
+    <string name="helpText2">Puedes activar o desactivar los recordatorios.</string>
+    <string name="helpText3">Elige un nombre para darle un estilo personal a los recordatorios.</string>
+    <string name="helpText4">Puedes cambiar el inicio, fin e intervalo de los recordatorios.</string>
+    <string name="helpText5">Puedes deshabilitar los sonidos y la vibración.</string>
+    <string name="helpText6">La opción de Incremento incrementa la intensidad si ignoras los recordatorios.</string>
+  	<string name="helpAdvice">El intervalo configurado no será tomado de manera estricta para ahorrar energía.</string>
+    <string name="notificationText">Por favor ¡bebe un poco de agua!</string>
+    <string name="cfgCommonNameKey">cfgCommonName</string>
+    <string name="cfgCommonNameTitle">Nombre</string>
+    <string name="cfgCommonNameDefaultValue">Nombre</string>
+    <string name="cfgIncrementKey">cfgIncrementKey</string>
+    <string name="cfgIncrementTitle">Incremento</string>
+    <bool name="cfgIncrementDefaultValue">false</bool>
+    <string name="cfgIncrementSummaryOn">Recordatorio con incremento</string>
+    <string name="cfgIncrementSummaryOff">Recordatorio sin incremento</string>
+    <string name="cfgReminderKey">cfgReminder</string>
+    <string name="cfgReminderTitle">Recordatorio</string>
+    <bool name="cfgReminderDefaultValue">true</bool>
+    <string name="cfgReminderSummaryOn">Recordatorios habilitados</string>
+    <string name="cfgReminderSummaryOff">Recordatorios deshabilitados</string>
+    <string name="cfgSoundKey">cfgSoundKey</string>
+    <string name="cfgSoundTitle">Sonido</string>
+    <bool name="cfgSoundDefaultValue">true</bool>
+    <string name="cfgSoundSummaryOn">Recordatorios con sonido</string>
+    <string name="cfgSoundSummaryOff">Recordatorios sin sonido</string>
+    <string name="cfgSwitchTextOn">Si</string>
+    <string name="cfgSwitchTextOff">No</string>
+    <string name="cfgTimeStartKey">cfgTimeStart</string>
+    <string name="cfgTimeStartTitle">Inicio</string>
+    <string name="cfgTimeStartDefaultValue">9</string>
+    <string name="cfgTimeEndKey">cfgTimeEnd</string>
+    <string name="cfgTimeEndTitle">Fin</string>
+    <string name="cfgTimeEndDefaultValue">21</string>
+    <string name="cfgTimeIntervalKey">cfgTimeInterval</string>
+    <string name="cfgTimeIntervalTitle">Intervalo</string>
+    <string name="cfgTimeIntervalDefaultValue">60</string>
+    <string name="cfgVibrationKey">cfgVibrationKey</string>
+    <string name="cfgVibrationTitle">Vibración</string>
+    <bool name="cfgVibrationDefaultValue">true</bool>
+    <string name="cfgVibrationSummaryOn">Recordatorios con vibración</string>
+    <string name="cfgVibrationSummaryOff">Recordatorios sin vibración</string>
+    
+</resources>
